@@ -27,6 +27,10 @@ namespace CompetitionRegistration.ViewModels
         [Required(ErrorMessage = "Please insert  e-mail address.")]
         [RegularExpression(".+\\@.+\\..+", ErrorMessage = "Proszę podać prawidłowy adres e-mail.")]
         public string Email { get; set; }
+        [Display(Name = "Hasło")]
+        [StringLength(20, MinimumLength = 5, ErrorMessage = "wpisz haslo dllugosci 5-20 znakow")]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
         public SelectList SelectSex {get; set;}
 
         public CompetitorRegistrationViewModel()

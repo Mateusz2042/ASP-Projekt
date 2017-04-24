@@ -5,7 +5,7 @@
 <div class="jumbotron">
     <h1>Rejestracja uzytkownikow</h1>
     <p class="lead">Sprawdź nadchodzące zawody i dołącz już dziś. Załóż konto już dziś.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Pokaż nadchodzące zawody. &raquo;</a></p>
 </div>
 
 <div class="row">
@@ -15,17 +15,24 @@
             Jesli chcesz zapisać się na zawody, najpierw musisz posiadać konto
         </p>
 
-        <p><a class="btn btn-default" href="@Url.Action("Register", null, new { area = string.Empty, controller = "Registration" }, Request.Url.Scheme)">Zarejestruj się &raquo;</a></p>
+        <p><a class="btn btn-default"
+               href="@Url.Action("Register", null, new { area = string.Empty, controller = "Registration" },
+                     Request.Url.Scheme)">Zarejestruj się &raquo;</a>
+        </p>
     </div>
 
     <div class="col-md-4">
         <h2>Zaloguj się i sparawdź swoje zawody</h2>
         <p>Sprawdź na jakie zawody się zarejestrowałeś i kiedy się zaczynają :).</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Zaloguj się &raquo;</a></p>
+        <p>
+            <a class="btn btn-default"
+               href="@Url.Action("Login", null, new { area = string.Empty, controller = "Login" },
+                     Request.Url.Scheme)">Zaloguj się &raquo;</a>
+        </p>
     </div>
     <div class="col-md-4">
-        <h2>Nadchodzące zawody</h2>
-        <p>Kliknij by sprawdzić nadchodzące wydarzenia i dołączyć.</p>
+        <h2>Zakończone zawody i wyniki</h2>
+        <p>Kliknij aby sprawdzić wyniki zakończonych zawodów, rankingi tabele</p>
         <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Wyświetl &raquo;</a></p>
     </div>
 </div>
