@@ -30,12 +30,13 @@ namespace CompetitionRegistration.Controllers
                 //zapis cu do bazy
 
             }
-            return RedirectToAction("Home/Index");
+            return RedirectToAction("Home","Index");
 
 
         }
         public ActionResult Display()
         {
+            // trzzeba zrobić auto maper
             List<CompetiorsDisplayViewModel> allUsers = new List<CompetiorsDisplayViewModel>();
             using (var db = new CompetitionContext())
             {

@@ -1,1 +1,6 @@
 C:\Users\PawelP\Desktop\asp falate\ASP-Projekt\dsadas\ASP-Projekt\RegistrationModels\obj\Debug\RegistrationModels.csprojResolveAssemblyReference.cache
+C:\Users\PawelP\Desktop\asp falate\ASP-Projekt\RegistrationModels\bin\Debug\RegistrationModels.dll
+C:\Users\PawelP\Desktop\asp falate\ASP-Projekt\RegistrationModels\bin\Debug\RegistrationModels.pdb
+C:\Users\PawelP\Desktop\asp falate\ASP-Projekt\RegistrationModels\obj\Debug\RegistrationModels.csprojResolveAssemblyReference.cache
+C:\Users\PawelP\Desktop\asp falate\ASP-Projekt\RegistrationModels\obj\Debug\RegistrationModels.dll
+C:\Users\PawelP\Desktop\asp falate\ASP-Projekt\RegistrationModels\obj\Debug\RegistrationModels.pdb

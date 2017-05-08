@@ -5,7 +5,8 @@
 <div class="jumbotron">
     <h1>Rejestracja uzytkownikow</h1>
     <p class="lead">Sprawdź nadchodzące zawody i dołącz już dziś. Załóż konto już dziś.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Pokaż nadchodzące zawody. &raquo;</a></p>
+    <p><a href="@Url.Action("Display", null, new { area = string.Empty, controller = "Competitions" },
+                     Request.Url.Scheme)" class="btn btn-primary btn-lg">Pokaż nadchodzące zawody. &raquo;</a></p>
 </div>
 
 <div class="row">
@@ -33,6 +34,11 @@
     <div class="col-md-4">
         <h2>Zakończone zawody i wyniki</h2>
         <p>Kliknij aby sprawdzić wyniki zakończonych zawodów, rankingi tabele</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Wyświetl &raquo;</a></p>
+        
+        <p>
+            <a class="btn btn-default"
+               href="@Url.Action("Display", null, new { area = string.Empty, controller = "Competitions" },
+                     Request.Url.Scheme)">Wyświetl &raquo;</a>
+        </p>
     </div>
 </div>

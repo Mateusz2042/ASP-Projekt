@@ -20,16 +20,16 @@ namespace CompetitionRegistration.Controllers
         {
 
             
-            using (var db = new CompetitionContext())
-            {
-                var currentUser = db.Competitor.Where(x => x.Email == user.Email && x.Password == user.Password).FirstOrDefault();
+            //using (var db = new CompetitionContext())
+            //{
+            //    var currentUser = db.Competitor.Where(x => x.Email == user.Email && x.Password == user.Password).FirstOrDefault();
 
                 
 
 
 
-            }
-            return View();
+            //}
+            return View("Menu");
         }
     }
 }

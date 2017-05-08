@@ -19,5 +19,7 @@ namespace CompetitionRegistration.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public eCategory Category { get; set; }
+        public DateTime StartDate { get; set; }
+
     }
 }

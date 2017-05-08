@@ -225,3 +225,11 @@ C:\Users\PawelP\Desktop\asp falate\ASP-Projekt\dsadas\ASP-Projekt\CompetitionReg
 C:\Users\PawelP\Desktop\asp falate\ASP-Projekt\dsadas\ASP-Projekt\CompetitionRegistration\obj\Debug\CompetitionRegistration.csprojResolveAssemblyReference.cache
 C:\Users\PawelP\Desktop\asp falate\ASP-Projekt\dsadas\ASP-Projekt\CompetitionRegistration\obj\Debug\CompetitionRegistration.dll
 C:\Users\PawelP\Desktop\asp falate\ASP-Projekt\dsadas\ASP-Projekt\CompetitionRegistration\obj\Debug\CompetitionRegistration.pdb
+C:\Users\PawelP\Desktop\asp falate\ASP-Projekt\CompetitionRegistration\bin\System.Net.Http.Formatting.dll
+C:\Users\PawelP\Desktop\asp falate\ASP-Projekt\CompetitionRegistration\bin\System.Web.Http.dll
+C:\Users\PawelP\Desktop\asp falate\ASP-Projekt\CompetitionRegistration\bin\System.Web.Http.WebHost.dll
+C:\Users\PawelP\Desktop\asp falate\ASP-Projekt\CompetitionRegistration\bin\System.Net.Http.Formatting.xml
+C:\Users\PawelP\Desktop\asp falate\ASP-Projekt\CompetitionRegistration\bin\System.Web.Http.xml
+C:\Users\PawelP\Desktop\asp falate\ASP-Projekt\CompetitionRegistration\bin\System.Web.Http.WebHost.xml
+C:\Users\PawelP\Desktop\asp falate\ASP-Projekt\CompetitionRegistration\bin\RegistrationModels.dll
+C:\Users\PawelP\Desktop\asp falate\ASP-Projekt\CompetitionRegistration\bin\RegistrationModels.pdb
