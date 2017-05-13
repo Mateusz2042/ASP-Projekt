@@ -48,6 +48,7 @@ namespace MailQR.Controllers
             Bitmap img = encoder.Encode(id.ToString());
             string path = Server.MapPath("~/QRCodes/") + id + ".jpg";
             img.Save(path, ImageFormat.Jpeg);
+
             return path;
         }
 
