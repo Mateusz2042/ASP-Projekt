@@ -11,13 +11,14 @@ namespace SportsCompetitions.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<Competition> Competition { get; set; }
-        //public DbSet<Preferences> Preferences { get; set; }
-        //public DbSet<Informations> Informations { get; set; }
+        public DbSet<SingleCompetition> SingleCompetition { get; set; }
+        public DbSet<TeamCompetition> TeamCompetition { get; set; }
+        public DbSet<Informations> Informations { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection")
         {
         }
+       
     }
 
 }

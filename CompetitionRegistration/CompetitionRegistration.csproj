@@ -177,6 +177,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706050756095_1.0.cs" />
+    <Compile Include="Migrations\201706050756095_1.0.Designer.cs">
+      <DependentUpon>201706050756095_1.0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706050823078_1.1.cs" />
+    <Compile Include="Migrations\201706050823078_1.1.Designer.cs">
+      <DependentUpon>201706050823078_1.1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Competition.cs" />
     <Compile Include="Models\CompetitionContext.cs" />
     <Compile Include="Models\Moderator.cs" />
@@ -250,6 +259,14 @@
       <Project>{124F766B-43D2-4D9C-BDF5-380C01F19BAD}</Project>
       <Name>RegistrationModels</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706050756095_1.0.resx">
+      <DependentUpon>201706050756095_1.0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706050823078_1.1.resx">
+      <DependentUpon>201706050823078_1.1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

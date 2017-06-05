@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using SportsCompetitionsMVC.Models;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using static SportsCompetitions.Enums.Enums;
 
 namespace SportsCompetitions.Models
@@ -18,7 +20,8 @@ namespace SportsCompetitions.Models
         
 
 
-        public virtual Competition Competition { get; set; }
+        public virtual ICollection <SingleCompetition> SingleCompetition { get; set; }
+        public virtual ICollection <TeamCompetition> TeamCompetition { get; set; }
         public virtual Informations Informations { get; set; }
     }
 

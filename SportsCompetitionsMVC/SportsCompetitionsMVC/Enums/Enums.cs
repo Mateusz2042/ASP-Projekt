@@ -23,4 +23,11 @@ namespace SportsCompetitions.Enums
 
 
     }
+    public enum eUsertype
+    {
+        Admin,
+        Moderator,
+        NormalUser
+    }
+
 }
