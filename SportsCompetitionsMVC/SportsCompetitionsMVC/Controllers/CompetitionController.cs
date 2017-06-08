@@ -17,9 +17,53 @@ namespace SportsCompetitionsMVC.Controllers
         {
             return View();
         }
-        public ActionResult Add()
+        public ActionResult DisplayEvents()
         {
-            return View();
+            List<DisplayEventViewModel> vm = new List<DisplayEventViewModel>();
+            using (var db = new ApplicationDbContext())
+            {
+               var allCompetitions =  db.SingleCompetition.ToList();
+                foreach (var item in allCompetitions)
+                {
+                    DisplayEventViewModel _event = new DisplayEventViewModel();
+                    _event.Category = item.Category.ToString();
+                    //_event.CompetitorsCount = item.CompetitorsId.Count;
+                    _event.Image = item.Image;
+                    _event.StartDate = item.StartDate;
+                    _event.Title = item.Title;
+                    vm.Add(_event);
+
+                }
+
+                
+            }
+            
+
+                return View(vm);
+        }
+        public ActionResult Display3Events()
+        {
+            List<DisplayEventViewModel> vm = new List<DisplayEventViewModel>();
+            using (var db = new ApplicationDbContext())
+            {
+                var allCompetitions = db.SingleCompetition;
+                foreach (var item in allCompetitions)
+                {
+                    DisplayEventViewModel _event = new DisplayEventViewModel();
+                    _event.Category = item.Category.ToString();
+                    //_event.CompetitorsCount = item.CompetitorsId.Count;
+                    _event.Image = item.Image;
+                    _event.StartDate = item.StartDate;
+                    _event.Title = item.Title;
+                    vm.Add(_event);
+
+                }
+
+
+            }
+
+
+            return View(vm);
         }
         public ActionResult Create()
         {
@@ -27,12 +71,12 @@ namespace SportsCompetitionsMVC.Controllers
             return View(new CompetitonViewModel());
         }
         [HttpPost]
-        public ActionResult Create(CompetitonViewModel viewModel)
+        public ActionResult Create(CompetitonViewModel viewModel, string type)
         {
 
             if (ModelState.IsValid)
             {
-
+            
                 var _event = new SingleCompetition();
 
 
@@ -59,13 +103,14 @@ namespace SportsCompetitionsMVC.Controllers
                     newCompetiton.ModeratorId = _dbUser.Id;
                     newCompetiton.CompetitorsId = new List<string>();
 
+                    db.SingleCompetition.Add(newCompetiton);
 
 
                     db.SaveChanges();
                 }
 
             }
-            return View("Index","Home");
+            return RedirectToAction("Index","Home");
         }
         public ActionResult Join()
         {
