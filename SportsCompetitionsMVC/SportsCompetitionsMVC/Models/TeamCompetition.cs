@@ -13,6 +13,7 @@ namespace SportsCompetitionsMVC.Models
         public string Title { get; set; }
         public eCategory Category { get; set; }
         public DateTime StartDate { get; set; }
+        public string ModeratorId { get; set; }
         public List<Team> Teams { get; set; }
         public virtual List<ApplicationUser> Users { get; set; }
     }

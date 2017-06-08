@@ -100,6 +100,7 @@ namespace SportsCompetitions.Models
                 {
                     new SelectListItem {Text="Male",Value="0" },
                     new SelectListItem {Text="Famale",Value="1" },
+
                 }, "Value", "Text");
         }
 

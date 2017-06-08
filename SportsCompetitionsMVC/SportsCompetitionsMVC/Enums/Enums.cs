@@ -16,10 +16,14 @@ namespace SportsCompetitions.Enums
     }
     public enum eCategory
     {
-        Athletic,
-        TeamGame,
-        ChildrenPlays,
-        IndividualGame
+        Lekkoatletyka,
+        Gry_komputerowe,
+        SportyDrużynowe,
+        SportyZimowe,
+        SportyRakietkowe,
+        KolarstwoGórskie
+
+
 
 
     }
