@@ -103,7 +103,8 @@ namespace SportsCompetitionsMVC.Controllers
                     newCompetiton = _event;
                     newCompetiton.Image = "/Content/Upload/" + filename + extension;
                     newCompetiton.ModeratorId = _dbUser.Id;
-                    newCompetiton.CompetitorsId = new List<string>();
+                    newCompetiton.Competitors = new List<Competitor>();
+                    
 
                     db.SingleCompetition.Add(newCompetiton);
 

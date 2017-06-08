@@ -168,6 +168,7 @@
     </Compile>
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Competitor.cs" />
     <Compile Include="Models\SingleCompetition.cs" />
     <Compile Include="Models\EmailTemplate.cs" />
     <Compile Include="Models\Informations.cs" />
@@ -185,6 +186,7 @@
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\carousel.css" />
+    <Content Include="css\eventsStyle.css" />
     <Content Include="css\joinStyle.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
