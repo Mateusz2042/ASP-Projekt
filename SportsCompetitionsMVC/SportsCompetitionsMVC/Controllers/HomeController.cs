@@ -21,8 +21,8 @@ namespace SportsCompetitionsMVC.Controllers
             {
                 DateTime today = DateTime.Now;
 
-             
-                var min = db.SingleCompetition.Include(n => n.Competitors).OrderByDescending(cv => cv.StartDate).Take(3);
+                // zrobić żeby nie pokazywało, do tyłu            
+                var min = db.SingleCompetition.Include(n => n.Competitors).OrderBy(cv => cv.StartDate).Take(3);
 
                 //var allCompetitions = db.SingleCompetition.Select((s => s.OrderByD=> x.Datescending(x e).FirstOrDefault());
                 foreach (var item in min)

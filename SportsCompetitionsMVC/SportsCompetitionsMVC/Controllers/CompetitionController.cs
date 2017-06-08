@@ -17,6 +17,7 @@ namespace SportsCompetitionsMVC.Controllers
         {
             return View();
         }
+        [Authorize]
         public ActionResult DisplayEvents()
         {
             List<DisplayEventViewModel> vm = new List<DisplayEventViewModel>();
@@ -41,6 +42,7 @@ namespace SportsCompetitionsMVC.Controllers
 
             return View(vm);
         }
+        [Authorize]
         public ActionResult Display3Events()
         {
             List<DisplayEventViewModel> vm = new List<DisplayEventViewModel>();
@@ -67,12 +69,14 @@ namespace SportsCompetitionsMVC.Controllers
 
             return View("Home", vm);
         }
+        [Authorize]
         public ActionResult Create()
         {
 
             return View(new CompetitonViewModel());
         }
         [HttpPost]
+        [Authorize]
         public ActionResult Create(CompetitonViewModel viewModel, string type)
         {
 
