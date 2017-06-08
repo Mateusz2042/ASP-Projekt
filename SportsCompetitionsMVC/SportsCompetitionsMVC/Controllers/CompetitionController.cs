@@ -22,31 +22,7 @@ namespace SportsCompetitionsMVC.Controllers
             List<DisplayEventViewModel> vm = new List<DisplayEventViewModel>();
             using (var db = new ApplicationDbContext())
             {
-               var allCompetitions =  db.SingleCompetition.ToList();
-                foreach (var item in allCompetitions)
-                {
-                    DisplayEventViewModel _event = new DisplayEventViewModel();
-                    _event.Category = item.Category.ToString();
-                    //_event.CompetitorsCount = item.CompetitorsId.Count;
-                    _event.Image = item.Image;
-                    _event.StartDate = item.StartDate;
-                    _event.Title = item.Title;
-                    vm.Add(_event);
-
-                }
-
-                
-            }
-            
-
-                return View(vm);
-        }
-        public ActionResult Display3Events()
-        {
-            List<DisplayEventViewModel> vm = new List<DisplayEventViewModel>();
-            using (var db = new ApplicationDbContext())
-            {
-                var allCompetitions = db.SingleCompetition;
+                var allCompetitions = db.SingleCompetition.ToList();
                 foreach (var item in allCompetitions)
                 {
                     DisplayEventViewModel _event = new DisplayEventViewModel();
@@ -65,6 +41,32 @@ namespace SportsCompetitionsMVC.Controllers
 
             return View(vm);
         }
+        public ActionResult Display3Events()
+        {
+            List<DisplayEventViewModel> vm = new List<DisplayEventViewModel>();
+            using (var db = new ApplicationDbContext())
+            {
+
+                var allCompetitions = db.SingleCompetition.Where(n => n.StartDate == DateTime.MinValue).ToList();
+                foreach (var item in allCompetitions)
+                {
+                    DisplayEventViewModel _event = new DisplayEventViewModel();
+                    _event.Category = item.Category.ToString();
+                    //_event.CompetitorsCount = item.CompetitorsId.Count;
+                    _event.Image = item.Image;
+                    _event.StartDate = item.StartDate;
+                    _event.Title = item.Title;
+                    vm.Add(_event);
+
+
+                }
+                ViewBag.bag = vm;
+
+            }
+
+
+            return View("Home", vm);
+        }
         public ActionResult Create()
         {
 
@@ -76,7 +78,7 @@ namespace SportsCompetitionsMVC.Controllers
 
             if (ModelState.IsValid)
             {
-            
+
                 var _event = new SingleCompetition();
 
 
@@ -110,7 +112,7 @@ namespace SportsCompetitionsMVC.Controllers
                 }
 
             }
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
         public ActionResult Join()
         {

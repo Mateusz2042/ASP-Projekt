@@ -91,6 +91,8 @@ namespace SportsCompetitions.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+
+                   
                     var editedUser = new ApplicationUser();
                     editedUser.Informations = new Informations();
 
@@ -122,7 +124,7 @@ namespace SportsCompetitions.Controllers
                     //DbMethods.RegisterUser(editedUser);
                     var senderemail = new MailAddress("Portalrandew@gmail.com", "Potwierdzenie");
                     var receiveremail = new MailAddress(user.Email, "Receiver");
-
+                    
                     var password = "randki2000";
                     var sub = "Email confirmation";
                     var bodyPartial = string.Format("<a href=\"{1}\" title=\"User Email Confirm\">{1}</a>", user.UserName, Url.Action("ConfirmEmail", "Account", new { Token = user.Id, Email = user.Email }, Request.Url.Scheme));
