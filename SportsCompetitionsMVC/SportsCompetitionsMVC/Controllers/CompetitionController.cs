@@ -3,6 +3,7 @@ using SportsCompetitionsMVC.Models;
 using SportsCompetitionsMVC.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -23,8 +24,41 @@ namespace SportsCompetitionsMVC.Controllers
             List<DisplayEventViewModel> vm = new List<DisplayEventViewModel>();
             using (var db = new ApplicationDbContext())
             {
-                var allCompetitions = db.SingleCompetition.ToList();
+                var allCompetitions = db.SingleCompetition.Where(n => n.StartDate >= DateTime.Today).ToList();
                 foreach (var item in allCompetitions)
+                {
+                    DisplayEventViewModel _event = new DisplayEventViewModel();
+                    _event.Category = item.Category.ToString();
+                    //_event.CompetitorsCount = item.CompetitorsId.Count;
+
+                    _event.Image = item.Image;
+                    _event.StartDate = item.StartDate;
+                    _event.Title = item.Title;
+                    _event.Description = item.Description;
+                    vm.Add(_event);
+
+                }
+
+
+            }
+
+
+            return View(vm);
+        }
+        [Authorize]
+        public ActionResult DisplayYourEvents()
+        {
+            // uzytkownik i jego eventy
+            //trzeba zrobic widok z evetami urzytkownika 
+            List<DisplayEventViewModel> vm = new List<DisplayEventViewModel>();
+            using (var db = new ApplicationDbContext())
+            {
+                var userCompetitions = db.Users.Include(n => n.SingleCompetition).Where(n => n.UserName == User.Identity.Name).First();
+
+                var competitions = userCompetitions.SingleCompetition.Where(n => n.StartDate >= DateTime.Today);
+
+
+                foreach (var item in competitions)
                 {
                     DisplayEventViewModel _event = new DisplayEventViewModel();
                     _event.Category = item.Category.ToString();
@@ -34,12 +68,14 @@ namespace SportsCompetitionsMVC.Controllers
                     _event.Title = item.Title;
                     vm.Add(_event);
 
+
                 }
 
 
+
+
+
             }
-
-
             return View(vm);
         }
         [Authorize]
@@ -108,7 +144,7 @@ namespace SportsCompetitionsMVC.Controllers
                     newCompetiton.Image = "/Content/Upload/" + filename + extension;
                     newCompetiton.ModeratorId = _dbUser.Id;
                     newCompetiton.Competitors = new List<Competitor>();
-                    
+
 
                     db.SingleCompetition.Add(newCompetiton);
 
@@ -119,10 +155,13 @@ namespace SportsCompetitionsMVC.Controllers
             }
             return RedirectToAction("Index", "Home");
         }
-        public ActionResult Join()
+        public ActionResult Join(int id)
         {
+            // wyslij email do zalogowanego uzytkownika z kodem qr
+            //dodawanie zrobic
             List<SingleCompetition> _single = new List<Models.SingleCompetition>();
-            return View();
+
+            return RedirectToAction("DisplayYourEvents");
         }
         public ActionResult JoinSingle()
         {

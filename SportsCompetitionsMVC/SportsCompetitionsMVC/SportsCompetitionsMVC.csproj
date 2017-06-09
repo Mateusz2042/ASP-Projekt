@@ -215,6 +215,7 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Competition\Create.cshtml" />
     <Content Include="Views\Competition\DisplayEvents.cshtml" />
+    <Content Include="Views\Competition\DisplayYourEvents.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

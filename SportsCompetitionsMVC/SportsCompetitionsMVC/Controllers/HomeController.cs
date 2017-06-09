@@ -22,7 +22,7 @@ namespace SportsCompetitionsMVC.Controllers
                 DateTime today = DateTime.Now;
 
                 // zrobić żeby nie pokazywało, do tyłu            
-                var min = db.SingleCompetition.Include(n => n.Competitors).OrderBy(cv => cv.StartDate).Take(3);
+                var min = db.SingleCompetition.Include(n => n.Competitors).Where(n => n.StartDate >= DateTime.Today).OrderBy(cv => cv.StartDate).Take(3);
 
                 //var allCompetitions = db.SingleCompetition.Select((s => s.OrderByD=> x.Datescending(x e).FirstOrDefault());
                 foreach (var item in min)
@@ -36,7 +36,7 @@ namespace SportsCompetitionsMVC.Controllers
                     _event.Image = item.Image;
                     _event.StartDate = item.StartDate;
                     _event.Description = item.Description;
-                    
+                    _event.ID = item.Id;
 
                     vm.Add(_event);
 
