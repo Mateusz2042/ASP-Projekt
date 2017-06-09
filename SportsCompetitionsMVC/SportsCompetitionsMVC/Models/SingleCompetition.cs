@@ -18,7 +18,7 @@ namespace SportsCompetitionsMVC.Models
         public eCategory Category { get; set; }
         public DateTime StartDate { get; set; }
         public string ModeratorId { get; set; }
-        public List<Competitor> Competitors { get; set; }
+        public List<string> CompetitorsId { get; set; }
         public virtual List<ApplicationUser> Users { get; set; }
         //public  virtual List<string> 
     }

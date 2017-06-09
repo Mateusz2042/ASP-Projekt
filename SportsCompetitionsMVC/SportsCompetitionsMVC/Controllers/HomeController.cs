@@ -21,27 +21,31 @@ namespace SportsCompetitionsMVC.Controllers
             {
                 DateTime today = DateTime.Now;
 
-                // zrobić żeby nie pokazywało, do tyłu            
-                var min = db.SingleCompetition.Include(n => n.Competitors).Where(n => n.StartDate >= DateTime.Today).OrderBy(cv => cv.StartDate).Take(3);
+              
+                    var min = db.SingleCompetition.Where(n => n.StartDate >= DateTime.Today).OrderBy(cv => cv.StartDate).Take(3);
 
-                //var allCompetitions = db.SingleCompetition.Select((s => s.OrderByD=> x.Datescending(x e).FirstOrDefault());
-                foreach (var item in min)
-                {
-                    
-                    DisplayEventViewModel _event = new DisplayEventViewModel();
-                    _event.Title = item.Title;
-                    //_event.ModeratorName = (item as SingleCompetition).ModeratorId;
-                    _event.Category = item.Category.ToString();
-                    _event.CompetitorsCount = item.Competitors.Count;
-                    _event.Image = item.Image;
-                    _event.StartDate = item.StartDate;
-                    _event.Description = item.Description;
-                    _event.ID = item.Id;
+                    //var allCompetitions = db.SingleCompetition.Select((s => s.OrderByD=> x.Datescending(x e).FirstOrDefault());
+                    foreach (var item in min)
+                    {
 
-                    vm.Add(_event);
+                        DisplayEventViewModel _event = new DisplayEventViewModel();
+                        _event.Title = item.Title;
+                        //_event.ModeratorName = (item as SingleCompetition).ModeratorId;
+                        _event.Category = item.Category.ToString();
+                        _event.CompetitorsCount = item.Users.Count();
+                        _event.Image = item.Image;
+                        _event.StartDate = item.StartDate;
+                        _event.Description = item.Description;
+                        _event.ID = item.Id;
+
+                        vm.Add(_event);
 
 
-                }
+                    }
+
+              
+                     
+               
               
 
 
