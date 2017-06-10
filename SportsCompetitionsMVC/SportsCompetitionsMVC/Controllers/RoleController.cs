@@ -30,7 +30,7 @@ namespace SportsCompetitionsMVC.Controllers
                     {
                         user.Role.Add(role.Role.Name);
                     }
-
+                    user.Id = item.Id;
                     user.UserName = item.UserName;
                     vm.Add(user);
                 }
@@ -39,10 +39,6 @@ namespace SportsCompetitionsMVC.Controllers
 
             return View(vm);
         }
-        [HttpPost]
-        public ActionResult SetRole(string t)
-        {
-            return View();
-        }
+        
     }
 }

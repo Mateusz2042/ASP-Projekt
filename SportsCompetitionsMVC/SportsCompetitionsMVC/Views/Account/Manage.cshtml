@@ -29,11 +29,23 @@
     <div class="col-md-12">
 
         <p class="text-success">@ViewBag.StatusMessage</p>
-
-        <a href="@Url.Action("Edit", null, new { area = string.Empty, controller = "Dating" }, Request.Url.Scheme)"
-           class="btn btn-primary btn-lg">Pokaż swoje zawody &raquo;</a>
-        <a href="@Url.Action("FindMatches", null, new { area = string.Empty, controller = "Dating" }, Request.Url.Scheme)"
-           class="btn btn-primary btn-lg">Pokaz swoje osiagniecia &raquo;</a>
+        @if (!User.IsInRole("Admin"))
+        {
+            <a href="@Url.Action("DisplayYourEvents", null, new { area = string.Empty, controller = "Competition" }, Request.Url.Scheme)"
+               class="btn btn-primary btn-lg">Pokaż swoje zawody &raquo;</a>
+            <a href="@Url.Action("FindMatches", null, new { area = string.Empty, controller = "Dating" }, Request.Url.Scheme)"
+               class="btn btn-primary btn-lg">Pokaz swoje osiagniecia &raquo;</a>
+        }
+        @if (User.IsInRole("Moderator"))
+        {
+            <a href="@Url.Action("Create", null, new { area = string.Empty, controller = "Competition" }, Request.Url.Scheme)"
+               class="btn btn-primary btn-lg">Zarzadzaj moderatorami &raquo;</a>
+        }        
+        @if (User.IsInRole("Admin"))
+        {
+            <a href="@Url.Action("SetRole", null, new { area = string.Empty, controller = "Role" }, Request.Url.Scheme)"
+               class="btn btn-primary btn-lg">Zarzadzaj moderatorami &raquo;</a>
+        }
 
     </div>
 </div>

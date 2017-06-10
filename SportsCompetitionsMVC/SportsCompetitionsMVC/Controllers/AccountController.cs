@@ -447,6 +447,21 @@ namespace SportsCompetitions.Controllers
             base.Dispose(disposing);
         }
 
+        [Authorize(Roles = "Admin")]
+        public ActionResult SetRole(string id)
+        {
+            
+            var roleresult = UserManager.AddToRole(id, "Moderator");
+            return RedirectToAction("SetRole","Role");
+        }
+        [Authorize(Roles = "Admin")]
+        public ActionResult DeleteRole(string id)
+        {
+
+            var roleresult = UserManager.RemoveFromRole(id, "Moderator");
+            return RedirectToAction("SetRole", "Role");
+        }
+
         #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";

@@ -8,13 +8,8 @@ namespace SportsCompetitionsMVC.ViewModels
 {
     public class SetRoleViewModel
     {
-
-        [Required]
-        [Display(Name = "User name")]
+        public string Id { get; set; }
         public string UserName { get; set; }
-
-        [Required]
-        [Display(Name = "Role")]
         public List<string> Role { get; set; }
 
 
