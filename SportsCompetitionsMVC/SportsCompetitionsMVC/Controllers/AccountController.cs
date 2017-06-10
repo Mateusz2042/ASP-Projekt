@@ -91,8 +91,10 @@ namespace SportsCompetitions.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    var currentUser = UserManager.FindByName(user.UserName);
+                    var roleresult = UserManager.AddToRole(currentUser.Id, "Competitor");
 
-                   
+
                     var editedUser = new ApplicationUser();
                     editedUser.Informations = new Informations();
 
