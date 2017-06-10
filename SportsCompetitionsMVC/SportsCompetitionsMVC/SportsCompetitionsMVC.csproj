@@ -180,6 +180,7 @@
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="ViewModels\CompetitonViewModel.cs" />
     <Compile Include="ViewModels\DisplayEventViewModel.cs" />
+    <Compile Include="ViewModels\SetRoleViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\bootstrap-theme.css" />
@@ -217,11 +218,11 @@
     <Content Include="Views\Competition\Create.cshtml" />
     <Content Include="Views\Competition\DisplayEvents.cshtml" />
     <Content Include="Views\Competition\DisplayYourEvents.cshtml" />
+    <Content Include="Views\Role\SetRole.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Context\" />
-    <Folder Include="Views\Role\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

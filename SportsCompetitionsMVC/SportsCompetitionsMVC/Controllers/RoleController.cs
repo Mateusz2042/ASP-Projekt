@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using SportsCompetitions.Models;
+using SportsCompetitionsMVC.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,21 +13,35 @@ namespace SportsCompetitionsMVC.Controllers
     public class RoleController : Controller
     {
         // GET: Role
-        public ActionResult Index()
+        [Authorize(Roles = "Admin")]
+        public ActionResult SetRole()
         {
-            var roleManager = new RoleManager<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
+            List<SetRoleViewModel> vm = new List<ViewModels.SetRoleViewModel>();
 
-
-            if (!roleManager.RoleExists("User"))
+            using (var db = new ApplicationDbContext())
             {
-                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-                role.Name = "User";
-                roleManager.Create(role);
+                var allUsers = db.Users.ToList();
+                foreach (var item in allUsers)
+                {
+                    SetRoleViewModel user = new SetRoleViewModel();
+                    user.Role = new List<string>();
+                    
+                    foreach (var role in item.Roles)
+                    {
+                        user.Role.Add(role.Role.Name);
+                    }
 
+                    user.UserName = item.UserName;
+                    vm.Add(user);
+                }
                 
-
             }
 
+            return View(vm);
+        }
+        [HttpPost]
+        public ActionResult SetRole(string t)
+        {
             return View();
         }
     }
