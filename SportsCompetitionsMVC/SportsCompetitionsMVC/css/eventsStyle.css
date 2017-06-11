@@ -37,7 +37,7 @@
   top: 20px;
   right: 20px;
   z-index: 1;
-  background: #f2b202;
+  background: #3bb3e4;
   width: 55px;
   height: 55px;
   padding: 12.5px 0;
@@ -88,7 +88,7 @@
   position: absolute;
   top: -34px;
   left: 0;
-  background: #f2b202;
+  background: #3bb3e4;;
   padding: 10px 15px;
   color: #FFFFFF;
   font-size: 14px;
@@ -105,7 +105,7 @@
 .post-module .post-content .sub_title {
   margin: 0;
   padding: 0 0 20px;
-  color: #f2b202;
+  color: #3bb3e4;;
   font-size: 20px;
   font-weight: 400;
 }
@@ -168,5 +168,5 @@
   text-decoration: none;
 }
 .container .info span .fa {
-  color: #f2b202;
+  color: #3bb3e4;
 }

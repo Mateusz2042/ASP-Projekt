@@ -6,12 +6,10 @@
 
 <h2>DisplayEvents</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<div class="row">
+<div class="row" id="information">
     @foreach (var item in Model)
     {
 
@@ -19,7 +17,7 @@
             <div class="column">
 
                 <!-- Post-->
-                <div class="post-module">
+                <div class="post-module" id="inf">
                     <!-- Thumbnail-->
                     <div class="thumbnail">
                         <div class="date">

@@ -1,6 +1,7 @@
 ﻿@using SportsCompetitionsMVC.ViewModels
 @model List<SportsCompetitionsMVC.ViewModels.DisplayEventViewModel>
-
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -53,11 +54,11 @@
 
 
 
-<div class="container marketing">
+<div class="container marketing" id="conMain">
 
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <div class="row">
+    <div class="row" >
         @foreach (var item in Model)
         {
 
@@ -65,7 +66,7 @@
                 <div class="column">
 
                     <!-- Post-->
-                    <div class="post-module">
+                    <div class="post-module" id="main">
                         <!-- Thumbnail-->
                         <div class="thumbnail">
                             <div class="date">
@@ -95,6 +96,46 @@
 
      
 </div>
+<div id="content">
+    <div id="content1">
+        <i class="fa fa-thumbs-up" style="font-size:30px"></i>
+        <h3>Prostota obsługi</h3>
+        <p>
+            Zarówno panel administracyjny wydarzenia, jak i formularz rejestracji (formularz zgłoszeniowy) uczestnika cechuje prostota i użyteczność.
+
+        </p>
+    </div>
+
+    <div id="content2">
+        <i class="fa fa-hourglass-3" style="font-size:30px"></i>
+        <h3>Oszczędność czasu</h3>
+        <p>
+            Zarówno panel administracyjny wydarzenia, jak i formularz rejestracji (formularz zgłoszeniowy) uczestnika cechuje prostota i użyteczność.
+
+        </p>
+    </div>
+    <div style="clear:both"></div>
+    <div id="content3">
+       
+        
+       <i class="fa fa-envelope" style="font-size:30px"></i>
+        <h3> Powiadomienia mailowe</h3>
+        <p>
+            
+            Zostajesz powiadamiany o każdej rejestracji, dzięki czemu jesteś zawsze na bieżąco.
+        </p>
+    </div>
+    <div id="content4">
+        <i class="fa fa-mobile"  style="font-size:40px"></i>
+        <h3>Kod QR</h3>
+        
+            Przy rejestracji otrzymujesz kod QR, który będziesz wykorzystywać do dalszego uczestnictwa w zawodach.
+            
+        </p>
+    </div>
+    <div style="clear:both"></div>
+</div>
+<div style="clear:both"></div>
 <footer>
     &reg; Paweł Płowucha, Grzegorz Chmura, Arkadiusz Zwardoń, Mateusz Przbyło, Jakub Kubala
 </footer>
