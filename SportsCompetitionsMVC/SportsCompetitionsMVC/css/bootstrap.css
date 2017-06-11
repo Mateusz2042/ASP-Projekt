@@ -6009,3 +6009,63 @@ body{
     font-size:20px;
         
 }
+
+#BTN1,
+#BTN2{
+      background-color: #2a2c39;
+    color:white;
+   
+    margin-bottom:5px;
+    width:250px;
+    
+    font-size:15px;
+    margin-top:9px;
+    padding:15px;
+    text-decoration:none;
+    float:left;
+    margin-left:40px;
+}
+#BTN1:hover,
+#BTN2:hover{
+      background-color:  #21232d;
+   color:white;
+}
+#moderateTable th,
+#moderateTable td {
+    border:none;
+
+}
+
+#moderateTable th{
+    background-color:#3bb3e4;
+    font-size:18px;
+}
+#tabelaBTN{
+    margin-left:5px;
+    margin-top:10px;
+}
+#moderateTable{
+    background-color:#fff;
+    margin-top:25px;
+  width:542px;
+  margin-left:45px;
+  
+  border:none;
+  
+}
+#moderateTable tr{
+    font-size:15px;
+}
+#tabela{
+    margin-top:150px;
+    width:650px;
+    margin-left:290px;
+    background-color:#fff;
+    padding:20px 0px 20px 10px;
+    color:black;
+
+}
+tr:nth-child(2n+0){
+    background-color:#F9F8F6;
+}
+

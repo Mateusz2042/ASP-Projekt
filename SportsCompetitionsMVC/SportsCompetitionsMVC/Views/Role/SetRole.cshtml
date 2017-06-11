@@ -4,48 +4,51 @@
     ViewBag.Title = "SetRole";
 }
 
-<h2>SetRole</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.UserName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Role)
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
+<div id="tabela">
+    <table class="table" id="moderateTable">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserName)
-            </td>
-
-            <td>
-                @foreach (var role in item.Role)
-                {
-                    <p>
-                        @Html.DisplayFor(modelItem => role)
-                    </p>
-                   
-
-                }
-            </td>
-
-            <td>
-                <p><a class="btn btn-lg btn-info" href="@Url.Action("SetRole","Account", new { id = item.Id })" role="button">Ustaw Moderatora</a></p>
-                <p><a class="btn btn-lg btn-primary" href="@Url.Action("DeleteRole","Account", new { id = item.Id })" role="button">Usuń Moderatora</a></p>
-                @*@Html.ActionLink("Ustaw Moderatora", "SetRole", "Account", new { id = item.Id }) |
-                @Html.ActionLink("Usuń Moderatora", "SetRole", "Account", new { id = item.Id }) |*@
-                @*@Html.ActionLink("Usun", "SetRole", "Role", new { /* id=item.PrimaryKey */ })*@
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Role)
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+
+                <td>
+                    @foreach (var role in item.Role)
+                {
+                        <p>
+                            @Html.DisplayFor(modelItem => role)
+                        </p>
+
+
+                    }
+                </td>
+
+                <td>
+
+                    @*@Html.ActionLink("Ustaw Moderatora", "SetRole", "Account", new { id = item.Id }) |
+                        @Html.ActionLink("Usuń Moderatora", "SetRole", "Account", new { id = item.Id }) |*@
+                    @*@Html.ActionLink("Usun", "SetRole", "Role", new { /* id=item.PrimaryKey */ })*@
+                </td>
+            </tr>
+            <div id="tabelaBTN">
+                <p><a class="btn btn-lg btn-info" id="BTN1" href="@Url.Action("SetRole","Account", new { id = item.Id })" role="button">Ustaw Moderatora</a></p>
+                <p><a class="btn btn-lg btn-primary" id="BTN2" href="@Url.Action("DeleteRole","Account", new { id = item.Id })" role="button">Usuń Moderatora</a></p>
+            </div>
+            <div style="clear:both"></div>
+        }
+
+    </table>
+</div>
