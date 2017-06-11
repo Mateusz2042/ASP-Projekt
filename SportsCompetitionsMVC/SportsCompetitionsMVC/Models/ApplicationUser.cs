@@ -20,7 +20,7 @@ namespace SportsCompetitions.Models
         
 
 
-        public virtual ICollection <SingleCompetition> SingleCompetition { get; set; }
+        public virtual ICollection <Competition> SingleCompetition { get; set; }
         public virtual ICollection <TeamCompetition> TeamCompetition { get; set; }
         public virtual Informations Informations { get; set; }
     }

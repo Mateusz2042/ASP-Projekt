@@ -39,7 +39,13 @@
         @if (User.IsInRole("Moderator"))
         {
             <a href="@Url.Action("Create", null, new { area = string.Empty, controller = "Competition" }, Request.Url.Scheme)"
-               class="btn btn-primary btn-lg">Zarzadzaj moderatorami &raquo;</a>
+               class="btn btn-primary btn-lg">Stwórz wydarzenie &raquo;</a>
+
+            <a href="@Url.Action("SetResults", null, new { area = string.Empty, controller = "Competition" }, Request.Url.Scheme)"
+               class="btn btn-primary btn-lg">Stwórz wyniki &raquo;</a>
+
+
+            
         }        
         @if (User.IsInRole("Admin"))
         {

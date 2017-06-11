@@ -8,7 +8,7 @@ using System.Web;
 
 namespace SportsCompetitionsMVC.Models
 {
-    public class SingleCompetition
+    public class Competition
     {
         [Key]
         public int Id { get; set; }
@@ -18,7 +18,7 @@ namespace SportsCompetitionsMVC.Models
         public eCategory Category { get; set; }
         public DateTime StartDate { get; set; }
         public string ModeratorId { get; set; }
-        public List<string> CompetitorsId { get; set; }
+        public List<Result> Places { get; set; }       
         public virtual List<ApplicationUser> Users { get; set; }
         //public  virtual List<string> 
     }

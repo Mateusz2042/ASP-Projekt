@@ -12,7 +12,7 @@ namespace SportsCompetitions.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<SingleCompetition> SingleCompetition { get; set; }
+        public DbSet<Competition> SingleCompetition { get; set; }
         public DbSet<TeamCompetition> TeamCompetition { get; set; }
         public DbSet<Informations> Informations { get; set; }
         public ApplicationDbContext()

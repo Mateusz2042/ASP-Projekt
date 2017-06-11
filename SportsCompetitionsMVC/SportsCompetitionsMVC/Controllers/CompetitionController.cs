@@ -38,8 +38,16 @@ namespace SportsCompetitionsMVC.Controllers
                     _event.Description = item.Description;
 
                     var _moderator = db.Users.Where(x => x.UserName == User.Identity.Name).FirstOrDefault();
-                    _event.ModeratorName
-                        = $"{_moderator.Informations.FirstName} {_moderator.Informations.LastName}"; 
+                    try
+                    {
+                        _event.ModeratorName
+                      = $"{_moderator.Informations.FirstName} {_moderator.Informations.LastName}";
+
+                    }
+                    catch (Exception)
+                    {
+                        _event.ModeratorName = "Admin Pawel";
+                    }
 
                     vm.Add(_event);
 
@@ -51,6 +59,46 @@ namespace SportsCompetitionsMVC.Controllers
 
 
             return View(vm);
+        }
+        public ActionResult DisplayEndedEvents()
+        {
+            List<DisplayEventViewModel> vm = new List<DisplayEventViewModel>();
+            using (var db = new ApplicationDbContext())
+            {
+                var allCompetitions = db.SingleCompetition.Where(n => n.StartDate < DateTime.Today).ToList();
+                foreach (var item in allCompetitions)
+                {
+                    DisplayEventViewModel _event = new DisplayEventViewModel();
+                    _event.Category = item.Category.ToString();
+                    _event.CompetitorsCount = item.Users.Count();
+
+                    _event.Image = item.Image;
+                    _event.StartDate = item.StartDate;
+                    _event.Title = item.Title;
+                    _event.Description = item.Description;
+
+                    var _moderator = db.Users.Where(x => x.UserName == User.Identity.Name).FirstOrDefault();
+                    try
+                    {
+                        _event.ModeratorName
+                      = $"{_moderator.Informations.FirstName} {_moderator.Informations.LastName}";
+
+                    }
+                    catch (Exception)
+                    {
+                        _event.ModeratorName = "Admin Pawel";
+                    }
+
+                    vm.Add(_event);
+
+
+                }
+
+
+            }
+
+
+            return View("DisplayEvents", vm);
         }
         [Authorize]
         public ActionResult DisplayYourEvents()
@@ -91,22 +139,29 @@ namespace SportsCompetitionsMVC.Controllers
             }
             return View(vm);
         }
-     
+
         [Authorize]
+        public ActionResult DisplayYourEvents(int id)
+        {
+            return View();
+        }
+
+        [Authorize]
+        [Authorize(Roles = "Moderator")]
         public ActionResult Create()
         {
 
             return View(new CompetitonViewModel());
         }
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Moderator")]
         public ActionResult Create(CompetitonViewModel viewModel, string type)
         {
 
             if (ModelState.IsValid)
             {
 
-                var _event = new SingleCompetition();
+                var _event = new Competition();
 
 
 
@@ -122,7 +177,7 @@ namespace SportsCompetitionsMVC.Controllers
                 UpdateModel(_event);
 
                 ApplicationUser _dbUser;
-                SingleCompetition newCompetiton = new SingleCompetition();
+                Competition newCompetiton = new Competition();
                 using (var db = new ApplicationDbContext())
                 {
                     _dbUser = db.Users.Where(x => x.UserName == User.Identity.Name).FirstOrDefault();
@@ -130,7 +185,7 @@ namespace SportsCompetitionsMVC.Controllers
                     newCompetiton = _event;
                     newCompetiton.Image = "/Content/Upload/" + filename + extension;
                     newCompetiton.ModeratorId = _dbUser.Id;
-                    newCompetiton.CompetitorsId = new List<string>(); 
+                    //newCompetiton.CompetitorsId = new List<string>();
 
 
                     db.SingleCompetition.Add(newCompetiton);
@@ -142,18 +197,72 @@ namespace SportsCompetitionsMVC.Controllers
             }
             return RedirectToAction("Index", "Home");
         }
+
+        [Authorize]
+        [Authorize(Roles = "Moderator")]
+        public ActionResult SetResults()
+        {
+            List<DisplayEventViewModel> vm = new List<DisplayEventViewModel>();
+            using (var db = new ApplicationDbContext())
+            {
+                var allCompetitions = db.SingleCompetition.Where(n => n.StartDate < DateTime.Today).ToList();
+                foreach (var item in allCompetitions)
+                {
+                    DisplayEventViewModel _event = new DisplayEventViewModel();
+                    _event.Category = item.Category.ToString();
+                    _event.CompetitorsCount = item.Users.Count();
+
+                    _event.Image = item.Image;
+                    _event.StartDate = item.StartDate;
+                    _event.Title = item.Title;
+                    _event.Description = item.Description;
+
+                    var _moderator = db.Users.Where(x => x.UserName == User.Identity.Name).FirstOrDefault();
+                    try
+                    {
+                        _event.ModeratorName
+                      = $"{_moderator.Informations.FirstName} {_moderator.Informations.LastName}";
+
+                    }
+                    catch (Exception)
+                    {
+                        _event.ModeratorName = "Admin Pawel";
+                    }
+
+                    vm.Add(_event);
+
+
+                }
+
+
+            }
+
+
+            return View(vm);
+        }
+        [Authorize]
+        [Authorize(Roles = "Moderator")]
+        public ActionResult SetResultsPost(int id)
+        {
+            
+
+
+            return View(new ResultViewmodel());
+        }
+
+        [Authorize]
         public ActionResult Join(int id)
         {
 
             // wyslij email do zalogowanego uzytkownika z kodem qr
-            
+
 
             ApplicationUser _dbUser;
             using (var db = new ApplicationDbContext())
             {
                 _dbUser = db.Users.Include(n => n.SingleCompetition).Where(x => x.UserName == User.Identity.Name).FirstOrDefault();
 
-                SingleCompetition _competition = db.SingleCompetition.First(n => n.Id == id);
+                Competition _competition = db.SingleCompetition.First(n => n.Id == id);
 
                 //if (_dbUser.SingleCompetition == null)
                 //{
@@ -169,25 +278,25 @@ namespace SportsCompetitionsMVC.Controllers
 
                 _competition.Users.Add(_dbUser);
                 _dbUser.SingleCompetition.Add(_competition);
-                
+
 
 
 
                 db.SaveChanges();
             }
 
-           
+
 
             return RedirectToAction("DisplayYourEvents");
         }
         public ActionResult JoinSingle()
         {
-            List<SingleCompetition> _single = new List<Models.SingleCompetition>();
+            List<Competition> _single = new List<Models.Competition>();
             return View();
         }
         public ActionResult JoinTeam()
         {
-            List<SingleCompetition> _single = new List<Models.SingleCompetition>();
+            List<Competition> _single = new List<Models.Competition>();
             return View();
         }
 
