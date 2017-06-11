@@ -6169,3 +6169,46 @@ margin-top:-20px;
 color:#3bb3e4;
 font-weight:600;
 }
+#changePass{
+    background-color: #2a2c39;
+    color:white;
+    margin-top:12px;
+    margin-bottom:5px;
+    width:250px;
+    margin-left:2px;
+    font-size:15px;
+    margin-top:5px;
+    padding:10px;
+}
+#OldPassword,
+#NewPassword,
+#ConfirmPassword{
+    width:250px;
+    margin-left:0px;
+    margin-right:0px;
+
+}
+#forma{
+    width:850px;
+    margin-top:150px;
+    margin-left:350px;
+  
+
+   
+ 
+  
+   
+    
+    
+}
+#mode{
+      background-color: #2a2c39;
+    color:white;
+    margin-top:-5000px;
+    margin-bottom:5px;
+    width:250px;
+    margin-left:145px;
+    font-size:15px;
+    margin-top:25px;
+    padding:10px;
+}

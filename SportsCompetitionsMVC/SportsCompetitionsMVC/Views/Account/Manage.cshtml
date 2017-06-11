@@ -5,53 +5,39 @@
 }
 
 
-<style>
-    body, html {
-        height: 100%;
-        background-repeat: no-repeat;
-        background: url( http://www.hdwallpapers.in/walls/blue_mountains_dual_monitor-other.jpg );
-        font-family: 'Oxygen', sans-serif;
-        background-size: cover;
-        color: white;
-    }
-</style>
-<br /><br /><br /><br /><br />
-<div class="col-md-4 col-sm-6 col-xs-12">
-    <div class="text-left">
-
-        <img src="@ViewBag.Avatar" class="avatar img-circle img-responsive" alt="avatar">
-
+<div id="forma">
+    <div class="col-md-4 col-sm-6 col-xs-12">
 
     </div>
-</div>
-<br />
-<div class="row">
-    <div class="col-md-12">
+    <br />
+    <div class="row">
+        <div class="col-md-12">
 
-        <p class="text-success">@ViewBag.StatusMessage</p>
-        @if (!User.IsInRole("Admin"))
-        {
-            <a href="@Url.Action("DisplayYourEvents", null, new { area = string.Empty, controller = "Competition" }, Request.Url.Scheme)"
-               class="btn btn-primary btn-lg">Pokaż swoje zawody &raquo;</a>
-            <a href="@Url.Action("FindMatches", null, new { area = string.Empty, controller = "Dating" }, Request.Url.Scheme)"
-               class="btn btn-primary btn-lg">Pokaz swoje osiagniecia &raquo;</a>
-        }
-        @if (User.IsInRole("Moderator"))
-        {
-            <a href="@Url.Action("Create", null, new { area = string.Empty, controller = "Competition" }, Request.Url.Scheme)"
-               class="btn btn-primary btn-lg">Stwórz wydarzenie &raquo;</a>
+            <p class="text-success">
+                @ViewBag.StatusMessage
+            @if (!User.IsInRole("Admin"))
+            {
+                <a href="@Url.Action("DisplayYourEvents", null, new { area = string.Empty, controller = "Competition" }, Request.Url.Scheme)"
+                   class="btn btn-primary btn-lg">Pokaż swoje zawody &raquo;</a>
+                <a href="@Url.Action("FindMatches", null, new { area = string.Empty, controller = "Dating" }, Request.Url.Scheme)"
+                   class="btn btn-primary btn-lg">Pokaz swoje osiagniecia &raquo;</a>
+            }
+            @if (User.IsInRole("Moderator"))
+            {
+                <a href="@Url.Action("Create", null, new { area = string.Empty, controller = "Competition" }, Request.Url.Scheme)"
+                   class="btn btn-primary btn-lg">Stwórz wydarzenie &raquo;</a>
 
-            <a href="@Url.Action("SetResults", null, new { area = string.Empty, controller = "Competition" }, Request.Url.Scheme)"
-               class="btn btn-primary btn-lg">Stwórz wyniki &raquo;</a>
+                <a href="@Url.Action("SetResults", null, new { area = string.Empty, controller = "Competition" }, Request.Url.Scheme)"
+                   class="btn btn-primary btn-lg">Stwórz wyniki &raquo;</a>
 
 
-            
-        }        
-        @if (User.IsInRole("Admin"))
-        {
-            <a href="@Url.Action("SetRole", null, new { area = string.Empty, controller = "Role" }, Request.Url.Scheme)"
-               class="btn btn-primary btn-lg">Zarzadzaj moderatorami &raquo;</a>
-        }
+
+            }
+            @if (User.IsInRole("Admin"))
+            {
+                <a href="@Url.Action("SetRole", null, new { area = string.Empty, controller = "Role" }, Request.Url.Scheme)"
+                   class="btn btn-primary btn-lg" id="mode">Zarzadzaj moderatorami &raquo;</a>
+            }
 
     </div>
 </div>
@@ -68,12 +54,13 @@
         }
 
         @*<section id="externalLogins">
-            @Html.Action("RemoveAccountList")
-            @Html.Partial("_ExternalLoginsListPartial", new { Action = "LinkLogin", ReturnUrl = ViewBag.ReturnUrl })
-        </section>*@
+                @Html.Action("RemoveAccountList")
+                @Html.Partial("_ExternalLoginsListPartial", new { Action = "LinkLogin", ReturnUrl = ViewBag.ReturnUrl })
+            </section>*@
     </div>
 </div>
-<br />
+</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
