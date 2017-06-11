@@ -195,7 +195,9 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\four.jpg" />
     <Content Include="Images\one.jpeg" />
+    <Content Include="Images\three.jpg" />
     <Content Include="Images\two.png" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />

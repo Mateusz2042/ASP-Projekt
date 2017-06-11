@@ -21,28 +21,27 @@
             </div>
         </div>
         <div class="item">
-            <img src="http://placehold.it/900x500/666666&text=Second+slide" alt="Second slide">
+            <img src="~/Images/three.jpg" alt="First slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Another example headline.</h1>
-                    <p>Kliknij aby zobaczyć nadchodzące wydareenia</p>
-                    <p><a class="btn btn-lg btn-primary" href="@Url.Action("DisplayEvents","Competition")" role="button">Wyswietl wszystkie wydarzenia</a></p>
+                    <h1 style="font-size:60px">Sprawdź nadchodzące wydarzenia.</h1>
+                    <p>Kliknij aby zobaczyć nadchodzące wydarzenia</p>
+                    <p><a class="btn btn-lg btn-primary" href="@Url.Action("DisplayEvents","Competition")" role="button">Wyświetl</a></p>
                 </div>
             </div>
         </div>
         <div class="item">
-            <img src="http://placehold.it/900x500/555555&text=Third+slide" alt="Third slide">
+            <img src="~/Images/four.jpg" alt="First slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>One more for good measure.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    <h1>Zobacz zakończone zawody</h1>
+                    <p>Jeśli przegapiłeś swoje zawody lub chcesz zobaczyć te zakończone klinkij.</p>
                     <p><a class="btn btn-lg btn-primary" href="@Url.Action("DisplayEndedEvents","Competition")" role="button">Pokaż zakończone zawody</a></p>
                 </div>
             </div>
         </div>
     </div>
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    
 </div><!-- /.carousel -->
 
 
@@ -52,88 +51,99 @@
 
 
 
+<div id="containerMin">
+
+    <div class="container marketing" id="conMain">
 
 
-<div class="container marketing" id="conMain">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <div class="row">
+            @foreach (var item in Model)
+            {
 
+                <div class="col-md-4">
+                    <div class="column">
 
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <div class="row" >
-        @foreach (var item in Model)
-        {
+                        <!-- Post-->
+                        <div class="post-module" id="main">
+                            <!-- Thumbnail-->
+                            <div class="thumbnail">
+                                <div class="date">
+                                    <a href="@Url.Action("Join","Competition",new { id = @item.ID })">
 
-            <div class="col-md-4">
-                <div class="column">
-
-                    <!-- Post-->
-                    <div class="post-module" id="main">
-                        <!-- Thumbnail-->
-                        <div class="thumbnail">
-                            <div class="date">
-                                <a href="@Url.Action("Join","Competition",new { id = @item.ID })" >
-                           
-                                    <div class="day"><i class="fa fa-bars" aria-hidden="true"></i></div>
-                                </a>
+                                        <div class="day"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                                    </a>
+                                </div>
+                                <img src="@item.Image" class="img-responsive" alt="">
                             </div>
-                            <img src="@item.Image" class="img-responsive" alt="">
-                        </div>
-                        <!-- Post Content-->
-                        <div class="post-content">
-                            <div class="category">@item.Category</div>
-                            <h1 class="title">@item.Title</h1>
-                            <h2 class="sub_title"> @item.StartDate</h2>
-                            <p class="description">@item.Description</p>
-                            <div class="post-meta"><span class="timestamp"><i class="fa fa-clock-">o</i> 6 mins ago</span><span class="comments"><i class="fa fa-comments"></i><a href="#"> @item.CompetitorsCount zapisanych uczestników</a></span></div>
+                            <!-- Post Content-->
+                            <div class="post-content">
+                                <div class="category">@item.Category</div>
+                                <h1 class="title">@item.Title</h1>
+                                <h2 class="sub_title"> @item.StartDate</h2>
+                                <p class="description">@item.Description</p>
+                                <div class="post-meta"><span class="timestamp"><i class="fa fa-clock-">o</i> 6 mins ago</span><span class="comments"><i class="fa fa-comments"></i><a href="#"> @item.CompetitorsCount zapisanych uczestników</a></span></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        }
+            }
+
+        </div>
+
+
+
 
     </div>
+    <div id="content">
+        <div id="content5">
+
+            <h3><i class="fa fa-child" style="font-size:40px"></i>Wypróbuj już dzisiaj</h3>
+            <p>
+                Nigdy wcześniej organizacja zawodów, imprez i wydarzeń nie była tak prosta.
+
+            </p>
+        </div>
+        <div id="content1">
+            <i class="fa fa-thumbs-up" style="font-size:30px"></i>
+            <h3>Prostota obsługi</h3>
+            <p>
+                Zarówno panel administracyjny wydarzenia, jak i formularz rejestracji (formularz zgłoszeniowy) uczestnika cechuje prostota i użyteczność.
+
+            </p>
+        </div>
+
+        <div id="content2">
+            <i class="fa fa-hourglass-3" style="font-size:30px"></i>
+            <h3>Oszczędność czasu</h3>
+            <p>
+                Dzięki pełnej automatyzacji procesu rejestracji.
+
+            </p>
+        </div>
+        <div style="clear:both"></div>
+        <div id="content3">
 
 
+            <i class="fa fa-envelope" style="font-size:30px"></i>
+            <h3> Powiadomienia mailowe</h3>
+            <p>
 
-     
-</div>
-<div id="content">
-    <div id="content1">
-        <i class="fa fa-thumbs-up" style="font-size:30px"></i>
-        <h3>Prostota obsługi</h3>
-        <p>
-            Zarówno panel administracyjny wydarzenia, jak i formularz rejestracji (formularz zgłoszeniowy) uczestnika cechuje prostota i użyteczność.
+                Zostajesz powiadamiany o każdej rejestracji, dzięki czemu jesteś zawsze na bieżąco.
+            </p>
+        </div>
+        <div id="content4">
+            <i class="fa fa-mobile" style="font-size:40px"></i>
+            <h3>Kod QR</h3>
+            <p>
+                Przy rejestracji otrzymujesz kod QR, który będziesz wykorzystywać do dalszego uczestnictwa w zawodach.
 
-        </p>
+            </p>
+        </div>
+        <div style="clear:both"></div>
+
+
     </div>
-
-    <div id="content2">
-        <i class="fa fa-hourglass-3" style="font-size:30px"></i>
-        <h3>Oszczędność czasu</h3>
-        <p>
-            Zarówno panel administracyjny wydarzenia, jak i formularz rejestracji (formularz zgłoszeniowy) uczestnika cechuje prostota i użyteczność.
-
-        </p>
-    </div>
-    <div style="clear:both"></div>
-    <div id="content3">
-       
-        
-       <i class="fa fa-envelope" style="font-size:30px"></i>
-        <h3> Powiadomienia mailowe</h3>
-        <p>
-            
-            Zostajesz powiadamiany o każdej rejestracji, dzięki czemu jesteś zawsze na bieżąco.
-        </p>
-    </div>
-    <div id="content4">
-        <i class="fa fa-mobile"  style="font-size:40px"></i>
-        <h3>Kod QR</h3>
-        
-            Przy rejestracji otrzymujesz kod QR, który będziesz wykorzystywać do dalszego uczestnictwa w zawodach.
-            
-        </p>
-    </div>
-    <div style="clear:both"></div>
 </div>
 <div style="clear:both"></div>
 <footer>

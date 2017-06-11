@@ -6083,23 +6083,26 @@ body{
 #conMain{
     
     float:left;
-    
+
 }
 #main{
+    
     width:450px;
-    height:450px;
+    height:530px;
     margin-left:40px;
    
+  
+ 
 }
 
 #content{
 float:left;
 width:700px;
 margin-left:530px;
-margin-top:-450px;
+margin-top:-530px;
 font-size:16px;
 background-color:#F5F5F5;
-height:450px;
+height:530px;
 text-align:left;
 margin-bottom:20px;
 margin-right:40px;
@@ -6108,24 +6111,31 @@ margin-right:40px;
 #content1{
     float:left;
     width:300px;
-    margin:50px 40px 20px 45px;
+    margin:40px 40px 30px 40px;
 }
 #content2{
     width:300px;
     float:left;
-   margin:50px 10px 10px -10px;
+   margin:40px 10px 30px -10px;
 
 }
 #content3{
-     margin-left:45px;
+     margin-left:40px;
      width:300px;
     float:left;
      margin-right:45px;
+     margin-top:-10px;
 }
 #content4{
     width:300px;
     float:left;
     margin-left:-10px;
+     margin-top:-10px;
+}
+#content5{
+    text-align:center;
+    font-size:18px;
+    margin-top:50px;
 }
 .fa-envelope,
 .fa-thumbs-up,
@@ -6142,7 +6152,20 @@ margin-right:40px;
 .fa-envelope:hover,
 .fa-thumbs-up:hover,
 .fa-hourglass-3:hover,
-.fa-mobile:hover{
+.fa-mobile:hover,
+.fa-child:hover{
     color:#297d9f;
     cursor:pointer;
+}
+.fa-child{
+     color:#3bb3e4;
+   margin-right:10px;
+     margin-bottom:-9px;
+}
+#containerMin{
+margin-top:-20px;
+}
+#myCarousel h1 {
+color:#3bb3e4;
+font-weight:600;
 }
